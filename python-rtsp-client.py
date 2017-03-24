@@ -16,16 +16,13 @@ from argparse import ArgumentParser
 TRANSPORT_TYPE      = ''
 DEST_IP             = socket.gethostbyname(socket.gethostname())
 CLIENT_PORT_RANGE   = '10014-10015'
-NAT_IP_PORT         = ''
-ENABLE_ARQ          = False
-ENABLE_FEC          = False
 
 TRANSPORT_TYPE_MAP  = { 'ts_over_tcp'  : 'MP2T/TCP;%s;interleaved=0-1',
                         'ts_over_udp'  : 'MP2T/UDP;%s;destination=%s;client_port=%s'
                       }
 
 RTSP_VERSION        = 'RTSP/1.0'
-RTSP_STATUS_CODE    = [200, 302]
+RTSP_STATUS_CODE    = (200, 302)
 DEFAULT_USERAGENT   = 'Python RTSP Client 1.0'
 HEARTBEAT_INTERVAL  = 10
 
@@ -37,6 +34,7 @@ CUR_SCALE           = 1
 
 DURATION            = 0
 UDP_TIMEOUT_NUM     = 3
+FILEHANDLE          = None
 
 UDP_BIND_ERR, TCP_CONNECT_ERR, RTSP_RESP_ERR, RTSP_ANNOUNCE_ERR, SOCK_ERR = 201, 202, 203, 204, 205
 
