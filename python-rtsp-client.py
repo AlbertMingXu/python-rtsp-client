@@ -32,7 +32,6 @@ HEADER_END_STR      = LINE_SPLIT_STR*2
 CUR_RANGE           = 'npt=0-'
 CUR_SCALE           = 1
 
-DURATION            = 0
 UDP_TIMEOUT_NUM     = 3
 FILEHANDLE          = None
 
@@ -386,11 +385,11 @@ if __name__ == '__main__':
 
     if args.dest_ip:     DEST_IP = args.dest_ip
     if args.client_port: CLIENT_PORT_RANGE = args.client_port
-    if args.duration:    DURATION = args.duration
     if args.write:       FILEHANDLE = open(args.write, 'wb')
 
-    RTSPURL = args.URL[0]
+    RTSPURL        = args.URL[0]
     TRANSPORT_TYPE = args.transport
+    DURATION       = args.duration
 
     c = RTSPClient(RTSPURL, dst_ip=DEST_IP, port=CLIENT_PORT_RANGE, filehandle=FILEHANDLE, duration=DURATION)
     RETVAL = c.run()
